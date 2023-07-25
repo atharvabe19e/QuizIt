@@ -1,11 +1,12 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Title from '../components/title';
+import Quiz from './quiz';
 
 const Home = ({navigation}) => {
   return (
-    <View>
-      <Title titleText='QuitIt' />
+    <View style={styles.container}>
+      <Title titleText='QuizIT' />
       <View style={styles.bannerContainer}>
         <Image
           source={{
@@ -15,9 +16,10 @@ const Home = ({navigation}) => {
           resizeMode="contain"
         />
       </View>
-      <TouchableOpacity onPress={()=>navigation.navigation('Quiz')}>
-        <Text>
-      hello touch</Text>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Quiz')}
+        style={styles.button}>
+        <Text style={styles.buttonText}>Start</Text>
       </TouchableOpacity>
     </View>
   );
@@ -35,5 +37,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
   },
-  
+  container: {
+    paddingTop: 40,
+    paddingHorizontal: 20,
+    height: '100%',
+  },
+  button: {
+    width: '100%',
+    backgroundColor: '#1A759F',
+    padding: 16,
+    borderRadius: 16,
+    alignItems: 'center',
+    marginBottom: 30,
+  },
+  buttonText: {
+    fontSize: 24,
+    fontWeight: '600',
+    color: 'white',
+  },
 });
